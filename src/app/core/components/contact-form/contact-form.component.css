@@ -1,0 +1,75 @@
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #7f1730;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.require-text{
+  color: #ec0a3f;
+}
+
+label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #454242;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+textarea {
+  height: 100px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #9a1c3a;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #7f1730;
+}
+
+input.ng-invalid.ng-touched {
+  border-left: 5px solid #a94442; 
+}
+
+.helper-text {
+  color: #ba0731;
+  font-size: 12px;
+}

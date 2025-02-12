@@ -1,0 +1,86 @@
+<section>
+  <div class="container">
+    <h1>CONTACT US</h1>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="full-name">FULL NAME <span class="require-text">*</span></label>
+        <input 
+          type="text" 
+          id="full-name" 
+          formControlName="fullName" 
+          aria-describedby="fullNameError" 
+          placeholder="Ex: Le Minh Quang"
+        />
+        <div *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)" id="fullNameError" class="error">
+          <div class="helper-text" *ngIf="fullName?.errors?.['required']">Full Name is required.</div>
+          <div class="helper-text" *ngIf="fullName?.errors?.['pattern']">Full Name must be any words</div>
+        </div>
+      </div>
+
+      <!-- Company Name -->
+      <div class="form-group">
+        <label for="company-name">COMPANY NAME <span class="require-text">*</span></label>
+        <input 
+          type="text" 
+          id="company-name" 
+          placeholder="Ex: Aegona"
+          formControlName="companyName" 
+          aria-describedby="companyNameError" 
+        />
+        <div *ngIf="contactForm.get('companyName')?.invalid && (contactForm.get('companyName')?.dirty || contactForm.get('companyName')?.touched)" id="companyNameError" class="error">
+          <div  class="helper-text" *ngIf="contactForm.get('companyName')?.hasError('required')">Company Name is required.</div>
+          <div  class="helper-text" *ngIf="contactForm.get('companyName')?.hasError('pattern')">Company Name must be any words.</div>
+        </div>
+      </div>
+
+      <!-- Business Phone -->
+      <div class="form-group">
+        <label for="business-phone">BUSINESS PHONE <span class="require-text">*</span></label>
+        <input 
+          type="tel" 
+          id="business-phone" 
+          placeholder="Ex: 0364835692"
+          formControlName="businessPhone" 
+          aria-describedby="businessPhoneError" 
+        />
+        <div   class="helper-text" *ngIf="contactForm.get('businessPhone')?.invalid && (contactForm.get('businessPhone')?.dirty || contactForm.get('businessPhone')?.touched)" id="businessPhoneError" class="error">
+          <div   class="helper-text" *ngIf="contactForm.get('businessPhone')?.hasError('required')">Business Phone is required.</div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">EMAIL <span class="require-text">*</span></label>
+        <input 
+          type="email" 
+          id="email" 
+          formControlName="email" 
+          placeholder="Ex: dev@gmail.com"
+          aria-describedby="emailError" 
+        />
+        <div *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)" id="emailError" class="error">
+          <div  class="helper-text" *ngIf="contactForm.get('email')?.hasError('required')">Email is required.</div>
+          <div  class="helper-text" *ngIf="contactForm.get('email')?.hasError('email')">Email must be a valid email address.</div>
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="form-group">
+        <label for="message">MESSAGE <span class="require-text">*</span></label>
+        <textarea 
+          id="message" 
+          formControlName="message" 
+          required 
+          aria-describedby="messageError"
+        ></textarea>
+        <div   class="helper-text" *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)" id="messageError" class="error">
+          <div   class="helper-text" *ngIf="contactForm.get('message')?.hasError('required')">Message is required.</div>
+        </div>
+      </div>
+
+      <button type="submit">SEND MESSAGE</button>
+    </form>
+  </div>
+</section>
