@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
     navigation = {
         support: [
-            {name: 'Help', href: '#'},
+            {name: 'Help', href: '/contact'},
             {name: 'Track order', href: '#'},
             {name: 'Shipping', href: '#'},
             {name: 'Returns', href: '#'},
