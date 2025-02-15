@@ -1,15 +1,18 @@
-import { Directive, OnInit, TemplateRef } from '@angular/core';
+import { Directive, OnInit, TemplateRef } from '@angular/core'
 
-import { ModalDialogComponent } from './modal-dialog.component';
+import { ModalDialogComponent } from './modal-dialog.component'
 
 /**
  * A helper directive used to correctly embed the modal buttons in the {@link ModalDialogComponent}.
  */
 @Directive({ selector: '[vsfDialogButtons]' })
 export class DialogButtonsDirective implements OnInit {
-    constructor(private modal: ModalDialogComponent<any>, private templateRef: TemplateRef<any>) {}
+  constructor(
+    private modal: ModalDialogComponent<any>,
+    private templateRef: TemplateRef<any>,
+  ) {}
 
-    ngOnInit() {
-        this.modal.registerButtonsTemplate(this.templateRef);
-    }
+  ngOnInit() {
+    this.modal.registerButtonsTemplate(this.templateRef)
+  }
 }

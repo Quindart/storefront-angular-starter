@@ -24,13 +24,13 @@ To deploy this storefront in a production environment, take the following steps:
 
 1. Open the [environment.prod.ts file](./src/environments/environment.prod.ts) and change the values to match your deployed Vendure server. You also probably want to set the `baseHref` value to `'/'` rather than `'/storefront/'`.
 2. Open the [angular.json file](./angular.json) and set the baseHref values to point to root:
-    ```diff
-      "production": {
-    -    "baseHref": "/storefront/",
-    -    "deployUrl": "/storefront/", 
-    +    "baseHref": "/",
-    +    "deployUrl": "/", 
-    ```
+   ```diff
+     "production": {
+   -    "baseHref": "/storefront/",
+   -    "deployUrl": "/storefront/",
+   +    "baseHref": "/",
+   +    "deployUrl": "/",
+   ```
 3. You then need to build for production using the `build:ssr` npm script. This can be done either locally or on your production server, depending on your preferred workflow.
 4. The built artifacts will be found in the `dist/` directory. The command to run the storefront as a server-rendered app is `node dist/server/main.js`. This will start a node server running on port 4000. You should configure your webserver to pass requests arriving on port 80 to `localhost:4000`.
 5. In the Vender server config, configure the `EmailPlugin` to point to the correct routes used by this storefront:
@@ -42,7 +42,7 @@ To deploy this storefront in a production environment, take the following steps:
        verifyEmailAddressUrl: 'https://your-domain.com/account/verify',
        passwordResetUrl: 'https://your-domain.com/account/reset-password',
        changeEmailAddressUrl: 'https://your-domain.com/account/change-email-address',
-     }
+     },
    })
    ```
 
@@ -66,5 +66,3 @@ Once the GitHub action workflow has completed and the built artifacts have been 
 ## License
 
 MIT
-
-

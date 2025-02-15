@@ -1,11 +1,24 @@
 <div *ngIf="activeCustomer$ | async as customer; else notLoggedIn">
-    <a class="btn btn-light text-muted" [routerLink]="['/account']">
-        <fa-icon icon="user-circle"></fa-icon>
-        <span class="d-none d-sm-inline ml-1">{{ userName(customer) }}</span>
-    </a>
+  <a class="btn btn-light text-muted" [routerLink]="['/account']">
+    <fa-icon icon="user-circle"></fa-icon>
+    <span class="d-none d-sm-inline ml-1">{{ userName(customer) }}</span>
+  </a>
 </div>
 <ng-template #notLoggedIn>
-    <a class="btn btn-light text-muted" [routerLink]="['account/sign-in']">
-        <fa-icon icon="user-circle"></fa-icon>
-        <span class="d-none d-sm-inline ml-1 ">Sign In</span></a>
+  <a class="btn btn-light text-muted" [routerLink]="['account/sign-in']">
+    <fa-icon icon="user-circle"></fa-icon>
+    <span class="d-none d-sm-inline ml-1">ĐĂNG NHẬP</span>
+  </a>
 </ng-template>
+<a class="btn btn-light text-muted" [routerLink]="['account/sign-in']">
+  <fa-icon icon="heart"></fa-icon>
+  <span class="d-none d-sm-inline ml-1">YÊU THÍCH</span>
+</a>
+<a class="btn btn-light text-muted" [routerLink]="['account/sign-in']">
+  <fa-icon icon="world"></fa-icon>
+  <span class="d-none d-sm-inline ml-1">VI . Đ</span>
+</a>
+<a class="btn btn-light text-muted" [routerLink]="['account/sign-in']">
+  <fa-icon icon="world"></fa-icon>
+  <span class="d-none d-sm-inline ml-1">MENU</span>
+</a>

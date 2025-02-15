@@ -1,7 +1,6 @@
-import { Directive } from '@angular/core';
+import { Directive } from '@angular/core'
 
 @Directive({
-    selector: '[vsfDropdownTrigger]',
+  selector: '[vsfDropdownTrigger]',
 })
-export class DropdownTriggerDirective {
-}
+export class DropdownTriggerDirective {}

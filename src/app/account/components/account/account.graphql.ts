@@ -1,10 +1,9 @@
-import {gql} from 'apollo-angular';
-
+import { gql } from 'apollo-angular'
 
 export const SIGN_OUT = gql`
-    mutation SignOut {
-        logout {
-            success
-        }
+  mutation SignOut {
+    logout {
+      success
     }
-`;
+  }
+`

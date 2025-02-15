@@ -1,154 +1,341 @@
 <vsf-layout>
-    <vsf-layout-header>
-        <div class="bg-gradient-to-r from-zinc-600 to-zinc-800 shadow-lg transform shadow-xl">
-            <div class="bg-zinc-100 text-gray-600 shadow-inner text-center text-sm py-2 px-2 xl:px-0">
-                <div class="max-w-6xl mx-2 md:mx-auto flex items-center justify-between">
-                    <div>
-                        <p class="hidden sm:block">
-                            Exclusive: Get your own
-                            <a
-                                class="underline"
-                                href="https://github.com/vendure-ecommerce/storefront-angular-starter"
-                                target="_blank"
-                            >
-                                FREE storefront starter kit
-                            </a>
-                        </p>
-                    </div>
-                    <div>
-                        <vsf-account-link class=""></vsf-account-link>
-                    </div>
-                </div>
-            </div>
-            <div class="max-w-6xl mx-2 py-2 md:mx-auto flex items-center space-x-4">
-                <vsf-mobile-menu-toggle class="md:hidden"></vsf-mobile-menu-toggle>
-                <a [routerLink]="['/']" class="l">
-                    <img alt="Vendure Storefront" class="w-10" src="assets/cube-logo-small.webp">
-                </a>
-                <vsf-collections-menu class="hidden md:block text-white"></vsf-collections-menu>
-                <vsf-product-search-bar class="flex-1"></vsf-product-search-bar>
-                <vsf-cart-toggle (toggle)="openCartDrawer()"></vsf-cart-toggle>
-            </div>
-        </div>
-    </vsf-layout-header>
-    <vsf-collections-menu-mobile [visible]="mobileNavVisible$ | async" class="z-10"></vsf-collections-menu-mobile>
-    <vsf-cart-drawer (close)="closeCartDrawer()" [visible]="cartDrawerVisible$ | async"></vsf-cart-drawer>
-    <div class="contents">
-        <vsf-home-page *ngIf="isHomePage$ | async; else main"></vsf-home-page>
-        <ng-template #main>
-            <router-outlet></router-outlet>
-        </ng-template>
-    </div>
-
-    <vsf-layout-footer>
-        <footer
-            aria-labelledby="footer-heading"
-            class="mt-24 border-t bg-gray-50"
+  <vsf-layout-header class="bg-slate-50">
+    <div>
+      <div
+        class="bg-gray-100 px-2 py-2 text-center text-sm text-gray-600 shadow-inner xl:px-0"
+      >
+        <div
+          class="mx-2 flex max-w-6xl items-center justify-between md:mx-auto"
         >
-            <h2 class="sr-only" id="footer-heading">
-                Footer
-            </h2>
-            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 ">
-                <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-                    <div class="grid grid-cols-2 gap-8 xl:col-span-2">
-                        <div class="md:grid md:grid-cols-2 md:gap-8">
-                            <div>
-                                <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">
-                                    Shop
-                                </h3>
-                                <ul class="mt-4 space-y-4" role="list">
-                                    <li *ngFor="let item of topCollections$ | async">
-                                        <a
-                                            [routerLink]="['/category', item.slug]"
-                                            class="text-base text-gray-500 hover:text-gray-600"
-                                        >
-                                            {{item.name}}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="mt-12 md:mt-0">
-                                <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">
-                                    Support
-                                </h3>
-                                <ul class="mt-4 space-y-4" role="list">
-                                    <li *ngFor="let item of navigation.support">
-                                        <a
-                                            [href]="item.href"
-                                            class="text-base text-gray-500 hover:text-gray-600"
-                                        >
-                                            {{item.name}}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="md:grid md:grid-cols-2 md:gap-8">
-                            <div>
-                                <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">
-                                    Company
-                                </h3>
-                                <ul class="mt-4 space-y-4" role="list">
-                                    <li *ngFor="let item of navigation.company">
-                                        <a
-                                            [href]="item.href"
-                                            class="text-base text-gray-500 hover:text-gray-600"
-                                        >
-                                            {{item.name}}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-8 xl:mt-0">
-                        <h3 class="text-sm font-semibold text-gray-500 tracking-wider uppercase">
-                            Subscribe to our newsletter
-                        </h3>
-                        <p class="mt-4 text-base text-gray-500">
-                            Be the first to know about exclusive offers & deals.
-                        </p>
-                        <form class="mt-4 sm:flex sm:max-w-md">
-                            <label class="sr-only" htmlFor="email-address">
-                                Email address
-                            </label>
-                            <input
-                                autoComplete="email"
-                                class="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400"
-                                id="email-address"
-                                name="email-address"
-                                placeholder="Enter your email"
-                                required
-                                type="email"
-                            />
-                            <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                                <button
-                                    class="w-full bg-primary-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-primary-500"
-                                    type="submit"
-                                >
-                                    Subscribe
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+          <div>
+            <a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="114"
+                height="32"
+                viewBox="0 0 114 32"
+                data-testid="header-hero-logo"
+                class=""
+              >
+                <g clip-path="url(#Logo_default_svg__a)">
+                  <path
+                    fill="#E32851"
+                    d="M38.637 7.434h-4.913a.255.255 0 00-.255.255v15.907c0 .14.114.255.255.255h4.913c.14 0 .255-.114.255-.255V7.689a.255.255 0 00-.255-.255z"
+                  ></path>
+                  <path
+                    fill="#FF932C"
+                    d="M52.833 7.6L49.6 16.21a.057.057 0 01-.107 0L46.231 7.6a.255.255 0 00-.239-.165h-5.37a.255.255 0 00-.237.351l6.46 15.907c.039.096.133.16.236.16h4.724a.255.255 0 00.237-.16L58.53 7.786a.255.255 0 00-.237-.352h-5.222a.255.255 0 00-.239.166z"
+                  ></path>
+                  <path
+                    fill="#0088D9"
+                    d="M104.344 7.185c-5.126 0-8.86 3.615-8.86 8.476 0 4.86 3.734 8.475 8.86 8.475 5.068 0 8.861-3.645 8.861-8.475 0-4.86-3.764-8.476-8.861-8.476zm0 12.328c-2.015 0-3.348-1.541-3.348-3.853 0-2.31 1.333-3.852 3.348-3.852 1.986 0 3.349 1.54 3.349 3.853 0 2.281-1.363 3.852-3.349 3.852z"
+                  ></path>
+                  <path
+                    fill="#E32851"
+                    d="M31.673 7.355a2.833 2.833 0 00-.514-.121c-.314-.05-3.647-.424-5.501 2.063-.033.044-.103.02-.103-.034V7.689a.255.255 0 00-.255-.255h-4.913a.255.255 0 00-.255.255v15.907c0 .14.114.255.255.255H25.3a.255.255 0 00.255-.255V17.69c0-4.416 2.044-5.514 4.06-5.514.237 0 .926-.001 1.9.268a.255.255 0 00.322-.245V7.594a.253.253 0 00-.164-.239zM36.18 0c-1.713 0-3.102 1.339-3.102 2.99 0 1.651 1.39 2.99 3.103 2.99 1.713 0 3.102-1.339 3.102-2.99 0-1.651-1.39-2.99-3.102-2.99z"
+                  ></path>
+                  <path
+                    fill="#FF932C"
+                    d="M75.341 7.434H70.43a.255.255 0 00-.255.255v1.565c0 .06-.083.08-.109.024-1.774-3.717-12.282-2.994-12.282 6.364 0 8.748 8.978 10.306 12.29 6.645.036-.04.1-.015.1.038v1.27c0 .142.115.256.256.256h4.912a.255.255 0 00.256-.255V7.689a.255.255 0 00-.255-.255zM66.77 19.495c-2.164 0-3.672-1.508-3.672-3.836s1.508-3.869 3.672-3.869c2.197 0 3.672 1.574 3.672 3.87 0 2.294-1.475 3.835-3.672 3.835z"
+                  ></path>
+                  <path
+                    fill="#0088D9"
+                    d="M93.893 7.434h-4.912a.255.255 0 00-.255.255v1.564c0 .062-.083.08-.11.025-1.78-3.764-11.567-2.82-11.567 5.89 0 8.54 8.92 9.243 11.58 6.759a.057.057 0 01.096.042v.769c-.068 3.629-4.614 5.2-6.924 2.443a.255.255 0 00-.334-.05l-4.14 2.677a.257.257 0 00-.066.368c5.283 7.219 16.802 3.548 16.887-5.422V7.69a.255.255 0 00-.255-.255zm-8.101 11.201c-1.956 0-3.32-1.363-3.32-3.466 0-2.104 1.364-3.497 3.32-3.497 1.985 0 3.318 1.422 3.318 3.497 0 2.074-1.333 3.466-3.318 3.466z"
+                  ></path>
+                  <path
+                    fill="#E32851"
+                    d="M18.424 14.867h-4.92a.26.26 0 00-.254.237 3.92 3.92 0 01-3.907 3.61c-2.472 0-3.472-2.1-3.472-2.1a3.923 3.923 0 01-.448-1.749c0-.02.011-.04.03-.05l1.407-.777 8.894-4.919a.425.425 0 00.22-.372V3.46a.255.255 0 00-.38-.224L5.509 8.814a.057.057 0 01-.086-.05V.452a.255.255 0 00-.394-.214L.194 3.368A.425.425 0 000 3.727v11.14a9.343 9.343 0 0018.68.268.257.257 0 00-.256-.268z"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="Logo_default_svg__a">
+                    <path fill="#fff" d="M0 0h113.205v32H0z"></path>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </div>
+          <div>
+            <vsf-account-link class=""></vsf-account-link>
+          </div>
+        </div>
+      </div>
+      <vsf-cart-toggle (toggle)="openCartDrawer()"></vsf-cart-toggle>
+    </div>
+  </vsf-layout-header>
+  <div class="bg-slate-50">
+    <div class="mx-auto w-[1130px] pb-10 pt-10">
+      <h1 class="text-2xl font-bold">
+        Tiết kiệm đến 60% cho đặt phòng khách sạn tiếp theo
+      </h1>
+      <p class="mt-3 text-gray-700">
+        Chúng tôi so sánh giá phòng từ nhiều trang
+      </p>
+      <vsf-product-search-bar class="flex-1"></vsf-product-search-bar>
+      <div class="mt-10 flex items-center justify-between space-x-6">
+        <img
+          src="https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/626.png"
+          alt="Booking.com"
+          class="h-4 w-auto"
+        />
+        <img
+          src="https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/395.png"
+          alt="Agoda"
+          class="h-4 w-auto"
+        />
+        <img
+          src="https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/406.png"
+          alt="Expedia"
+          class="h-4 w-auto"
+        />
+        <img
+          src="https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/2564.png"
+          alt="Vrbo"
+          class="h-4 w-auto"
+        />
+        <img
+          src="https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/14.png"
+          alt="Accor"
+          class="h-4 w-auto"
+        />
+        <img
+          src="https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/634.png"
+          alt="Trip.com"
+          class="h-4 w-auto"
+        />
+        <img
+          src="https://imgcy.trivago.com/image/upload/hardcodedimages/mpm-localised-logos-dark/1752.png"
+          alt="Mytour.vn"
+          class="h-4 w-auto"
+        />
+        <span class="text-sm text-gray-600">nhiều trang khác</span>
+      </div>
+    </div>
+  </div>
+  <vsf-collections-menu-mobile
+    [visible]="mobileNavVisible$ | async"
+    class="z-10"
+  ></vsf-collections-menu-mobile>
+  <vsf-cart-drawer
+    (close)="closeCartDrawer()"
+    [visible]="cartDrawerVisible$ | async"
+  ></vsf-cart-drawer>
+  <div class="contents">
+    <vsf-home-page *ngIf="isHomePage$ | async; else main"></vsf-home-page>
+    <ng-template #main>
+      <router-outlet></router-outlet>
+    </ng-template>
+  </div>
 
-                <div class="mt-8 border-t pt-8">
-                    <a class="flex gap-1 w-fit font-medium text-gray-500 hover:text-gray-700"
-                       href="https://github.com/vendure-ecommerce/storefront-angular-starter">
-                        <svg aria-hidden="true"
-                             class="h-6 w-6"
-                             fill="currentColor"
-                             viewBox="0 0 24 24">
-                            <path
-                                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                        </svg>
+  <vsf-layout-footer>
+    <footer class="mt-20 bg-gray-800 px-8 py-10 text-white">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
+        <div>
+          <div class="mb-10">
+            <a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="114"
+                height="32"
+                viewBox="0 0 114 32"
+                data-testid="header-hero-logo"
+                class=""
+              >
+                <g clip-path="url(#Logo_default_svg__a)">
+                  <path
+                    fill="#E32851"
+                    d="M38.637 7.434h-4.913a.255.255 0 00-.255.255v15.907c0 .14.114.255.255.255h4.913c.14 0 .255-.114.255-.255V7.689a.255.255 0 00-.255-.255z"
+                  ></path>
+                  <path
+                    fill="#FF932C"
+                    d="M52.833 7.6L49.6 16.21a.057.057 0 01-.107 0L46.231 7.6a.255.255 0 00-.239-.165h-5.37a.255.255 0 00-.237.351l6.46 15.907c.039.096.133.16.236.16h4.724a.255.255 0 00.237-.16L58.53 7.786a.255.255 0 00-.237-.352h-5.222a.255.255 0 00-.239.166z"
+                  ></path>
+                  <path
+                    fill="#0088D9"
+                    d="M104.344 7.185c-5.126 0-8.86 3.615-8.86 8.476 0 4.86 3.734 8.475 8.86 8.475 5.068 0 8.861-3.645 8.861-8.475 0-4.86-3.764-8.476-8.861-8.476zm0 12.328c-2.015 0-3.348-1.541-3.348-3.853 0-2.31 1.333-3.852 3.348-3.852 1.986 0 3.349 1.54 3.349 3.853 0 2.281-1.363 3.852-3.349 3.852z"
+                  ></path>
+                  <path
+                    fill="#E32851"
+                    d="M31.673 7.355a2.833 2.833 0 00-.514-.121c-.314-.05-3.647-.424-5.501 2.063-.033.044-.103.02-.103-.034V7.689a.255.255 0 00-.255-.255h-4.913a.255.255 0 00-.255.255v15.907c0 .14.114.255.255.255H25.3a.255.255 0 00.255-.255V17.69c0-4.416 2.044-5.514 4.06-5.514.237 0 .926-.001 1.9.268a.255.255 0 00.322-.245V7.594a.253.253 0 00-.164-.239zM36.18 0c-1.713 0-3.102 1.339-3.102 2.99 0 1.651 1.39 2.99 3.103 2.99 1.713 0 3.102-1.339 3.102-2.99 0-1.651-1.39-2.99-3.102-2.99z"
+                  ></path>
+                  <path
+                    fill="#FF932C"
+                    d="M75.341 7.434H70.43a.255.255 0 00-.255.255v1.565c0 .06-.083.08-.109.024-1.774-3.717-12.282-2.994-12.282 6.364 0 8.748 8.978 10.306 12.29 6.645.036-.04.1-.015.1.038v1.27c0 .142.115.256.256.256h4.912a.255.255 0 00.256-.255V7.689a.255.255 0 00-.255-.255zM66.77 19.495c-2.164 0-3.672-1.508-3.672-3.836s1.508-3.869 3.672-3.869c2.197 0 3.672 1.574 3.672 3.87 0 2.294-1.475 3.835-3.672 3.835z"
+                  ></path>
+                  <path
+                    fill="#0088D9"
+                    d="M93.893 7.434h-4.912a.255.255 0 00-.255.255v1.564c0 .062-.083.08-.11.025-1.78-3.764-11.567-2.82-11.567 5.89 0 8.54 8.92 9.243 11.58 6.759a.057.057 0 01.096.042v.769c-.068 3.629-4.614 5.2-6.924 2.443a.255.255 0 00-.334-.05l-4.14 2.677a.257.257 0 00-.066.368c5.283 7.219 16.802 3.548 16.887-5.422V7.69a.255.255 0 00-.255-.255zm-8.101 11.201c-1.956 0-3.32-1.363-3.32-3.466 0-2.104 1.364-3.497 3.32-3.497 1.985 0 3.318 1.422 3.318 3.497 0 2.074-1.333 3.466-3.318 3.466z"
+                  ></path>
+                  <path
+                    fill="#E32851"
+                    d="M18.424 14.867h-4.92a.26.26 0 00-.254.237 3.92 3.92 0 01-3.907 3.61c-2.472 0-3.472-2.1-3.472-2.1a3.923 3.923 0 01-.448-1.749c0-.02.011-.04.03-.05l1.407-.777 8.894-4.919a.425.425 0 00.22-.372V3.46a.255.255 0 00-.38-.224L5.509 8.814a.057.057 0 01-.086-.05V.452a.255.255 0 00-.394-.214L.194 3.368A.425.425 0 000 3.727v11.14a9.343 9.343 0 0018.68.268.257.257 0 00-.256-.268z"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="Logo_default_svg__a">
+                    <path fill="#fff" d="M0 0h113.205v32H0z"></path>
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </div>
 
-                        <span>github.com/vendure-ecommerce/storefront-angular-starter</span>
-                    </a>
-                </div>
-            </div>
-        </footer>
-    </vsf-layout-footer>
-
+          <select
+            aria-label="Chọn Quốc gia"
+            class="text-gray-800"
+            name="country"
+            data-testid="footer-locale-select"
+          >
+            <option value="shabaka">Arab World (العالم العربي)</option>
+            <option value="ar">Argentina</option>
+            <option value="au">Australia</option>
+            <option value="at">Austria (Österreich)</option>
+            <option value="be">Belgium (België)</option>
+            <option value="br">Brazil (Brasil)</option>
+            <option value="bg">Bulgaria (България)</option>
+            <option value="ca">Canada</option>
+            <option value="cl">Chile</option>
+            <option value="co">Colombia</option>
+            <option value="hr">Croatia (Hrvatska)</option>
+            <option value="cz">Czechia (Česko)</option>
+            <option value="dk">Denmark (Danmark)</option>
+            <option value="ec">Ecuador</option>
+            <option value="fi">Finland (Suomi)</option>
+            <option value="fr">France</option>
+            <option value="de">Germany (Deutschland)</option>
+            <option value="gr">Greece (Ελλάδα)</option>
+            <option value="hk">Hong Kong (香港)</option>
+            <option value="hu">Hungary (Magyarország)</option>
+            <option value="in">India</option>
+            <option value="id">Indonesia</option>
+            <option value="ie">Ireland</option>
+            <option value="il">Israel (ישראל)</option>
+            <option value="it">Italy (Italia)</option>
+            <option value="jp">Japan (日本)</option>
+            <option value="kr">Korea (한국)</option>
+            <option value="my">Malaysia</option>
+            <option value="mx">Mexico (México)</option>
+            <option value="nl">Netherlands (Nederland)</option>
+            <option value="nz">New Zealand</option>
+            <option value="no">Norway (Norge)</option>
+            <option value="pe">Peru (Perú)</option>
+            <option value="ph">Philippines (Pilipinas)</option>
+            <option value="pl">Poland (Polska)</option>
+            <option value="pt">Portugal</option>
+            <option value="ro">Romania (România)</option>
+            <option value="rs">Serbia (Srbija)</option>
+            <option value="sg">Singapore</option>
+            <option value="sk">Slovakia (Slovensko)</option>
+            <option value="si">Slovenia (Slovenija)</option>
+            <option value="za">South Africa</option>
+            <option value="es">Spain (España)</option>
+            <option value="se">Sweden (Sverige)</option>
+            <option value="ch">Switzerland (Schweiz)</option>
+            <option value="tw">Taiwan (台灣)</option>
+            <option value="th">Thailand (ประเทศไทย)</option>
+            <option value="tr">Turkey (Türkiye)</option>
+            <option value="ae">UAE</option>
+            <option value="uk">United Kingdom</option>
+            <option value="uy">Uruguay</option>
+            <option value="us">USA</option>
+            <option selected value="vn">Vietnam (Việt Nam)</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Công ty
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Cơ hội việc làm
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Báo chí
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Quan hệ đầu tư
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Ứng dụng di động
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                trivago Business Studio
+              </a>
+            </li>
+          </ul>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Hỗ trợ
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Cách trivago hoạt động
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Điều khoản sử dụng
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Thông tin pháp lý
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Tùy chọn cookie
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-md text-gray-500 hover:underline">
+                Thông báo bảo mật
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="mb-10 text-lg font-semibold text-gray-400">
+            Tìm nguồn cảm hứng đặc biệt cho kỳ nghỉ tiếp theo của bạn
+          </h3>
+          <p class="mb-4 text-gray-400">Đăng ký nhận bản tin của chúng tôi.</p>
+          <input
+            type="email"
+            placeholder="Địa chỉ email"
+            class="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button class="btn-primary mt-3 w-full rounded-md py-2 text-white">
+            Đăng ký
+          </button>
+        </div>
+      </div>
+      <div
+        class="mt-12 flex flex-col items-center justify-between border-t-[1px] border-gray-700 pt-4 text-sm text-gray-600 md:flex-row"
+      >
+        <div class="flex space-x-4">
+          <a href="#" class="hover:text-white">Facebook</a>
+          <a href="#" class="hover:text-white">Twitter</a>
+          <a href="#" class="hover:text-white">Instagram</a>
+          <a href="#" class="hover:text-white">YouTube</a>
+        </div>
+        <p class="mt-4 md:mt-0">
+          trivago N.V., Kesselstraße 5 – 7, 40221 Düsseldorf, CHLB Đức
+        </p>
+        <p>Copyright 2025 trivago | Bảo lưu toàn quyền.</p>
+      </div>
+    </footer>
+  </vsf-layout-footer>
 </vsf-layout>

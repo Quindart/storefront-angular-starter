@@ -1,44 +1,100 @@
-<div class="relative">
-    <div
-        aria-hidden="true"
-        class="absolute inset-0 overflow-hidden"
-    >
+<div class="w-full">
+  <section class="mx-auto max-w-6xl">
+    <h2 class="mb-4 mt-4 text-2xl font-bold">Xem gần đây</h2>
+    <div class="flex space-x-4 overflow-x-auto">
+      <!-- Card Thành phố -->
+      <div
+        class="flex w-56 flex-col justify-between rounded-lg bg-gray-200 p-4"
+      >
+        <div>
+          <h3 class="text-lg font-semibold">Málaga</h3>
+          <p class="text-sm text-gray-600">Không chọn ngày</p>
+          <p class="text-sm text-gray-600">2 khách, 1 phòng</p>
+        </div>
+        <div class="flex justify-end">
+          <fa-icon class="text-gray-600" icon="search"></fa-icon>
+        </div>
+      </div>
+      <!-- Card Khách sạn 1 -->
+      <div class="w-56 rounded-lg bg-white shadow-md">
         <img
-            class="absolute inset-0 w-full object-cover h-full"
-            [src]="heroImage + '?w=800&format=webp'"
-            alt="header"
+          src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/hotelier-images/f2/a9/fa4d6340f61f9a207848e9bafb2d5dbb8463e595384d055c8dfb3d18ca7a.jpeg"
+          alt="Hotel 1"
+          class="h-32 w-full rounded-t-lg object-cover"
         />
-        <!--<div class="absolute inset-0 bg-gradient-to-br from-zinc-50 to-zinc-900 mix-blend-darken"></div>-->
-    </div>
-    <div
-        aria-hidden="true"
-        class="absolute inset-0 bg-gray-900 opacity-80"
-    ></div>
-    <div class="relative max-w-3xl mx-auto py-16 px-6 flex flex-col items-center text-center sm:pt-72 sm:pb-72 lg:px-0">
-        <div class="relative bg-zinc-800 bg-opacity-0 rounded-lg p-0">
-            <h1 class="text-6xl text-transparent bg-clip-text font-extrabold tracking-normal lg:text-6xl bg-gradient-to-r from-white to-gray-200">
-                Vendure <span class="text-[#aa2d2f] glow">Angular</span> Starter
-            </h1>
+        <div class="p-3">
+          <h3 class="text-sm font-semibold">Coeo Hostel H...</h3>
+          <p class="text-sm font-bold text-orange-500">9.6 - Xuất sắc (8)</p>
+          <p class="text-sm text-gray-600">Hostel</p>
         </div>
+      </div>
 
-        <div class="mt-4 text-2xl text-white">
-            <p>A headless commerce <span class="whitespace-nowrap">starter kit built with</span></p>
+      <!-- Card Khách sạn 2 -->
+      <div class="w-56 rounded-lg bg-white shadow-md">
+        <img
+          src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/partner-images/65/0f/ae5e21368e735d11b6a58f0700bd92372d0ce772ae3b9dc935d0eba217ad.jpeg"
+          alt="Hotel 2"
+          class="h-32 w-full rounded-t-lg object-cover"
+        />
+        <div class="p-3">
+          <h3 class="text-sm font-semibold">Hotel Boutiqu...</h3>
+          <p class="text-sm font-bold text-orange-500">9.2 - Xuất sắc (1181)</p>
+          <p class="text-sm text-gray-600">Khách sạn</p>
+        </div>
+      </div>
 
-            <p>
-                <a href="https://www.vendure.io" class="text-blue-300 hover:text-blue-500">Vendure</a>
-                &
-                <a href="https://angular.io/" class="text-red-700 hover:text-red-500">Angular</a>
-            </p>
+      <!-- Card Thành phố 2 -->
+      <div
+        class="flex w-56 flex-col justify-between rounded-lg bg-gray-200 p-4"
+      >
+        <div>
+          <h3 class="text-lg font-semibold">Lloret de Mar</h3>
+          <p class="text-sm text-gray-600">Không chọn ngày</p>
+          <p class="text-sm text-gray-600">2 khách, 1 phòng</p>
         </div>
-    </div>
-</div>
-<div class="max-w-6xl mx-auto px-4 pt-12">
-    <div class="box-content py-2 px-2 relative overflow-x-auto xl:overflow-visible">
-        <div
-            class="grid justify-items-center grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-8 sm:px-6 lg:px-8 xl:relative xl:px-0 xl:space-x-0 xl:gap-x-8">
-            <vsf-collection-card *ngFor="let collection of collections$ | async"
-                                 [collection]="collection">
-            </vsf-collection-card>
+        <div class="flex justify-end">
+          <fa-icon class="text-gray-600" icon="search"></fa-icon>
         </div>
+      </div>
+
+      <!-- Card Khách sạn 3 -->
+      <div class="w-56 rounded-lg bg-white shadow-md">
+        <img
+          src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_534,q_40,w_800/hotelier-images/f6/32/ece260eeea74a13cf6c2957947ef5d743ff1f9e8a10f75e27eedeaf691ad.jpeg"
+          alt="Hotel 3"
+          class="h-32 w-full rounded-t-lg object-cover"
+        />
+        <div class="p-3">
+          <h3 class="text-sm font-semibold">Hotel Rosama...</h3>
+          <p class="text-sm font-bold text-orange-500">7.8 - Tốt (8667)</p>
+          <p class="text-sm text-gray-600">Khách sạn</p>
+        </div>
+      </div>
     </div>
+
+    <div class="mt-4 text-right text-sm font-semibold text-cyan-500">
+      <a href="#">Xem thêm →</a>
+    </div>
+  </section>
+  <section class="mx-auto mt-10 flex max-w-6xl flex-wrap justify-between gap-3">
+    <ng-container *ngFor="let tour of tours">
+      <vsf-tour-card
+        class="w-[32%]"
+        [name]="tour.name"
+        [discount]="tour.discount"
+        [location]="tour.location"
+        [rating]="tour.rating"
+        [price]="tour.price"
+        [stay_period]="tour.stay_period"
+        [provider]="tour.provider"
+        [image_url]="tour.image_url"
+        [reviews]="tour.reviews"
+        (contactClicked)="handleContactClick()"
+      ></vsf-tour-card>
+    </ng-container>
+    <vsf-collection-card
+      *ngfor="let item of collections$"
+      [collection]="item"
+    ></vsf-collection-card>
+  </section>
 </div>

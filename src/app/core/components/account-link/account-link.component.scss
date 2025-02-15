@@ -1,10 +1,7 @@
-@import "variables";
+@import 'variables';
 
 a.btn {
-    background-color: transparent;
-    border: none;
-
-    &:hover {
-        background-color: $light;
-    }
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
 }

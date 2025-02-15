@@ -1,13 +1,13 @@
 overwrite: true
-schema: "./schema.graphql"
-documents: "./src/app/**/*.graphql.ts"
+schema: './schema.graphql'
+documents: './src/app/**/*.graphql.ts'
 generates:
   ./src/app/common/generated-types.ts:
     plugins:
       - add:
-            content: "// eslint-disable"
-      - "typescript"
-      - "typescript-operations"
+          content: '// eslint-disable'
+      - 'typescript'
+      - 'typescript-operations'
     config:
       namingConvention:
         enumValues: 'keep'
@@ -16,7 +16,7 @@ generates:
   ./src/app/common/introspection-results.ts:
     plugins:
       - add:
-            content: "// eslint-disable"
-      - "fragment-matcher"
+          content: '// eslint-disable'
+      - 'fragment-matcher'
     config:
-        apolloClientVersion: 3
+      apolloClientVersion: 3

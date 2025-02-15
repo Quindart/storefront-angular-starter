@@ -31,10 +31,7 @@
             ],
             "scripts": [],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles",
-                "dist"
-              ]
+              "includePaths": ["src/styles", "dist"]
             },
             "vendorChunk": true,
             "extractLicenses": false,
@@ -103,24 +100,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles/styles.scss"
-            ],
+            "styles": ["src/styles/styles.scss"],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.json"
-            ]
+            "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         },
         "server": {
@@ -130,10 +118,7 @@
             "main": "server.ts",
             "tsConfig": "src/tsconfig.server.json",
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles",
-                "dist"
-              ]
+              "includePaths": ["src/styles", "dist"]
             },
             "optimization": false,
             "buildOptimizer": false
@@ -179,9 +164,7 @@
           "options": {
             "browserTarget": "reference-storefront:build:production",
             "serverTarget": "reference-storefront:server:production",
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {}
